@@ -1,6 +1,6 @@
 const express=require("express");
 const bodyParser=require('body-parser');
-const dbConnect= require("./dbConnect");
+const dbConnect= require("./dbconnect");
 const Visitor = require("./models/visitor");
 const path=require('path');
 
@@ -10,7 +10,7 @@ const port=process.env.PORT||1234;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(express.static(path.join(__dirname,"/Views")));
+app.use(express.static(path.join(__dirname,"/Views/build/")));
 
 
 app.get("/", function(req,res,next){
